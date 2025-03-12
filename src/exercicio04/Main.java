@@ -34,8 +34,9 @@ public class Main {
     }
 
     public static void inicializarMenu() {
-        int op = 0, i = 0;
+        int op = 0, cont = 0;
         while(op != 4) {
+            op = 0;
             System.out.println("Escolha uma opção: ");
             System.out.println("1. Cadastrar");
             System.out.println("2. Pesquisar");
@@ -45,15 +46,15 @@ public class Main {
 
 
             if(op == 1) {
-                cadastrarFuncionario(funcionarios, i);
+                cadastrarFuncionario(funcionarios, cont);
                 System.out.println("\nFuncionário cadastrado!");
-                i++;
+                cont++;
             } else if (op == 2) {
                 sc.nextLine();
                 String nome;
                 System.out.println("Insira o nome do funcionário que deseja buscar: ");
                 nome = sc.nextLine();
-                pesquisarFuncionario(nome, funcionarios);
+                pesquisarFuncionario(nome, funcionarios, cont);
             } else if (op < 1 || op > 4) {
                 System.out.println("Opção inválida!!!");
             }
@@ -62,7 +63,7 @@ public class Main {
 
     }
 
-    public static void cadastrarFuncionario(Funcionario[] funcionarios, int i) {
+    public static void cadastrarFuncionario(Funcionario[] funcionarios, int cont) {
         String nome, cargo;
         double salario;
 
@@ -73,22 +74,22 @@ public class Main {
         cargo = sc.nextLine();
         System.out.println("Insira o salário do funcionário: ");
         salario = sc.nextDouble();
-        funcionarios[i] = new Funcionario(nome, cargo, salario);
+        funcionarios[cont] = new Funcionario(nome, cargo, salario);
 
     }
 
-    public static void pesquisarFuncionario(String nome, Funcionario[] funcionarios) {
+    public static void pesquisarFuncionario(String nome, Funcionario[] funcionarios, int cont) {
         boolean check = false;
-        for(int i = 0; i < funcionarios.length; i++) {
+        for(int i = 0; i < cont; i++) {
             if(funcionarios[i].nome.equalsIgnoreCase(nome)){
                 check = true;
             }
         }
 
         if(check) {
-            System.out.println("O funcionário não está cadastrado!");
-        } else {
             System.out.println("O funcionário está cadastrado!");
+        } else {
+            System.out.println("O funcionário não está cadastrado!");
 
         }
     }
