@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Main {
     static Scanner sc = new Scanner(System.in);
     static Funcionario[] funcionarios = new Funcionario[5];
+
     public static void main(String[] args) {
         /*
         Scanner sc = new Scanner(System.in);
@@ -55,6 +56,10 @@ public class Main {
                 System.out.println("Insira o nome do funcionário que deseja buscar: ");
                 nome = sc.nextLine();
                 pesquisarFuncionario(nome, funcionarios, cont);
+            } else if (op == 3) {
+                listarFuncionarios(cont);
+            } else if (op == 4) {
+                System.out.println("\nFim do programa!");
             } else if (op < 1 || op > 4) {
                 System.out.println("Opção inválida!!!");
             }
@@ -80,16 +85,32 @@ public class Main {
 
     public static void pesquisarFuncionario(String nome, Funcionario[] funcionarios, int cont) {
         boolean check = false;
+        int aux = 0;
         for(int i = 0; i < cont; i++) {
             if(funcionarios[i].nome.equalsIgnoreCase(nome)){
                 check = true;
+                aux = i;
+            }
+            if(check) {
+                System.out.println("O funcionário está cadastrado!");
+                System.out.println(funcionarios[aux].nome);
+                System.out.println(funcionarios[aux].cargo);
+                System.out.println(funcionarios[aux].salario);
+            } else {
+                System.out.println("O funcionário não está cadastrado!");
+
             }
         }
 
-        if(check) {
-            System.out.println("O funcionário está cadastrado!");
-        } else {
-            System.out.println("O funcionário não está cadastrado!");
+    }
+
+    public static void listarFuncionarios(int cont) {
+        System.out.println("LISTA DE FUNCIONÁRIOS: ");
+        for (int i = 0; i < cont; i++) {
+            System.out.println("-------------------------");
+            System.out.println(funcionarios[i].nome);
+            System.out.println(funcionarios[i].cargo);
+            System.out.println(funcionarios[i].salario);
 
         }
     }
