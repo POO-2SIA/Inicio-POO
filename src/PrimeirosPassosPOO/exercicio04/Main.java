@@ -1,5 +1,6 @@
 package exercicio04;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Main {
@@ -36,7 +37,8 @@ public class Main {
 
     public static void inicializarMenu() {
         int op = 0, cont = 0;
-        while(op != 4) {
+        while (op != 4) {
+
             op = 0;
             System.out.println("Escolha uma opção: ");
             System.out.println("1. Cadastrar");
@@ -45,11 +47,15 @@ public class Main {
             System.out.println("4. Finalizar");
             op = sc.nextInt();
 
+            if (op == 1) {
+                if (cont < funcionarios.length) {
+                    cadastrarFuncionario(funcionarios, cont);
+                    System.out.println("\nFuncionário cadastrado!");
+                    cont++;
+                } else {
+                    System.out.println("Número de funcionários excedido!");
+                }
 
-            if(op == 1) {
-                cadastrarFuncionario(funcionarios, cont);
-                System.out.println("\nFuncionário cadastrado!");
-                cont++;
             } else if (op == 2) {
                 sc.nextLine();
                 String nome;
@@ -63,9 +69,7 @@ public class Main {
             } else if (op < 1 || op > 4) {
                 System.out.println("Opção inválida!!!");
             }
-
         }
-
     }
 
     public static void cadastrarFuncionario(Funcionario[] funcionarios, int cont) {
@@ -86,22 +90,20 @@ public class Main {
     public static void pesquisarFuncionario(String nome, Funcionario[] funcionarios, int cont) {
         boolean check = false;
         int aux = 0;
-        for(int i = 0; i < cont; i++) {
-            if(funcionarios[i].nome.equalsIgnoreCase(nome)){
+        for (int i = 0; i < cont; i++) {
+            if (funcionarios[i].nome.equalsIgnoreCase(nome)) {
                 check = true;
                 aux = i;
             }
-            if(check) {
+            if (check) {
                 System.out.println("O funcionário está cadastrado!");
                 System.out.println(funcionarios[aux].nome);
                 System.out.println(funcionarios[aux].cargo);
-                System.out.println(funcionarios[aux].salario);
+                System.out.println("R$" + String.format("%.2f", funcionarios[aux].salario));
             } else {
                 System.out.println("O funcionário não está cadastrado!");
-
             }
         }
-
     }
 
     public static void listarFuncionarios(int cont) {
@@ -110,7 +112,7 @@ public class Main {
             System.out.println("-------------------------");
             System.out.println(funcionarios[i].nome);
             System.out.println(funcionarios[i].cargo);
-            System.out.println(funcionarios[i].salario);
+            System.out.println("R$" + String.format("%.2f", funcionarios[i].salario));
 
         }
     }
