@@ -7,29 +7,6 @@ public class Main {
     static Funcionario[] funcionarios = new Funcionario[5];
 
     public static void main(String[] args) {
-        /*
-        Scanner sc = new Scanner(System.in);
-        Funcionario[] funcionarios = new Funcionario[3];
-        String nome, cargo;
-        double salario;
-
-        for(int i = 0; i < funcionarios.length; i++) {
-            System.out.println("Insira o nome do funcionário " + (i + 1) + ": ");
-            nome = sc.nextLine();
-            System.out.println("Insira o cargo do funcionário " + (i + 1) + ": ");
-            cargo = sc.nextLine();
-            System.out.println("Insira o salário do funcionário " + (i + 1) + ": ");
-            salario = sc.nextDouble();
-            sc.nextLine();
-            funcionarios[i] = new Funcionario(nome, cargo, salario);
-        }
-
-        for(Funcionario i : funcionarios) {
-            System.out.println(i.nome);
-            System.out.println(i.cargo);
-            System.out.println(i.salario);
-        }
-        */
 
         inicializarMenu();
     }
