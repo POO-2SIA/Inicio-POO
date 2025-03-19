@@ -1,4 +1,4 @@
-package exercicio03;
+package PrimeirosPassosPOO.exercicio03;
 
 public class Ponto {
     // atributos ou variáveis de instância

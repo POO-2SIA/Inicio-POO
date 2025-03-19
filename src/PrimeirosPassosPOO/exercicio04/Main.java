@@ -1,6 +1,5 @@
-package exercicio04;
+package PrimeirosPassosPOO.exercicio04;
 
-import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Main {

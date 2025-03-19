@@ -1,4 +1,4 @@
-package exercicio01;
+package PrimeirosPassosPOO.exercicio01;
 
 public class Jogador {
     // atributos ou variáveis de instância

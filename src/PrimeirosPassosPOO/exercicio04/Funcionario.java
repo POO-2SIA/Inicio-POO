@@ -1,4 +1,4 @@
-package exercicio04;
+package PrimeirosPassosPOO.exercicio04;
 
 public class Funcionario {
     String nome;
